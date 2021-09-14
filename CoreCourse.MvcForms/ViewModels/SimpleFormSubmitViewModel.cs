@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 
 namespace CoreCourse.MvcForms.ViewModels
 {
-    public class SimpleFormSubmitVm
+    public class SimpleFormSubmitViewModel
     {
-        public SimpleFormVm Data { get; set; }
+        public SimpleFormViewModel Data { get; set; }
         public string Method { get; set; }
     }
 }

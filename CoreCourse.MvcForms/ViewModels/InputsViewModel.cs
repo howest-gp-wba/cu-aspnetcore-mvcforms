@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CoreCourse.MvcForms.ViewModels
 {
-    public class InputsVm
+    public class InputsViewModel
     {
         [Display(Name="E-mail")]
         [EmailAddress]

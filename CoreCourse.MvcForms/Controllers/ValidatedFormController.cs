@@ -17,7 +17,7 @@ namespace CoreCourse.MvcForms.Controllers
         }
 
         [HttpPost]
-        public IActionResult Index(ValidatedFormVm userVm)
+        public IActionResult Index(ValidatedFormViewModel userVm)
         {
             //check if users' ip is banned
             string remoteIp = HttpContext.Connection.RemoteIpAddress.ToString();

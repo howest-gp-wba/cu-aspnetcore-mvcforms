@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CoreCourse.MvcForms.ViewModels
 {
-    public class RegistrationVm
+    public class RegistrationViewModel
     {
         [Display(Name = "Username")]
         [Required(ErrorMessage = "Please provide a username")]

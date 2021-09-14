@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CoreCourse.MvcForms.ViewModels
 {
-    public class ValidatedFormVm
+    public class ValidatedFormViewModel
     {
         [Required]
         [Display]

@@ -32,7 +32,7 @@ namespace CoreCourse.MvcForms.Controllers
                 new SelectListGroup{ Name = "North America" }
             };
 
-            var vm = new SelectListsVm();
+            var vm = new SelectListsViewModel();
             vm.SimpleSelect = new SimpleSelectVm
             {
                 SelectedCountryId = 1,
@@ -82,7 +82,7 @@ namespace CoreCourse.MvcForms.Controllers
         }
 
         [HttpPost]
-        public IActionResult ShowPicks(SelectListsVm userVm)
+        public IActionResult ShowPicks(SelectListsViewModel userVm)
         {
             if (userVm.SimpleSelect != null)
             {

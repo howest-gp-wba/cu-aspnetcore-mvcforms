@@ -11,13 +11,13 @@ namespace CoreCourse.MvcForms.Controllers
     {
         public IActionResult Index()
         {
-            InputsVm model = new InputsVm();
+            InputsViewModel model = new InputsViewModel();
             model.PI = Math.PI;
             return View(model);
         }
 
         [HttpPost]
-        public IActionResult Index(InputsVm userData)
+        public IActionResult Index(InputsViewModel userData)
         {
             if (userData.ShowSummary)
             {

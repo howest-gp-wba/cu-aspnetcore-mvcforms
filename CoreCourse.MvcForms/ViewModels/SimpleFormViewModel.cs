@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace CoreCourse.MvcForms.ViewModels
 {
-    public class SimpleFormVm
+    public class SimpleFormViewModel
     {
         public string Email { get; set; }
         public string Password { get; set; }

@@ -11,15 +11,15 @@ namespace CoreCourse.MvcForms.Controllers
     {
         public IActionResult Index()
         {
-            var model = new SimpleFormVm();
+            var model = new SimpleFormViewModel();
             model.RememberMe = true;
             return View(model);
         }
 
         [HttpGet]
-        public IActionResult SubmitWithGet(SimpleFormVm model)
+        public IActionResult SubmitWithGet(SimpleFormViewModel model)
         {
-            var submitVm = new SimpleFormSubmitVm
+            var submitVm = new SimpleFormSubmitViewModel
             {
                 Data = model,
                 Method = "GET"
@@ -28,9 +28,9 @@ namespace CoreCourse.MvcForms.Controllers
         }
 
         [HttpPost]
-        public IActionResult SubmitWithPost(SimpleFormVm model)
+        public IActionResult SubmitWithPost(SimpleFormViewModel model)
         {
-            var submitVm = new SimpleFormSubmitVm
+            var submitVm = new SimpleFormSubmitViewModel
             {
                 Data = model,
                 Method = "POST"
@@ -39,9 +39,9 @@ namespace CoreCourse.MvcForms.Controllers
         }
 
         [HttpPost]
-        public IActionResult SubmitWithRoute(SimpleFormVm model)
+        public IActionResult SubmitWithRoute(SimpleFormViewModel model)
         {
-            var submitVm = new SimpleFormSubmitVm
+            var submitVm = new SimpleFormSubmitViewModel
             {
                 Data = model,
                 Method = "Route/Post"

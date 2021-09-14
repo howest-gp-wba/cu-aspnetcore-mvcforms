@@ -15,7 +15,7 @@ namespace CoreCourse.MvcForms.Controllers
         }
 
         [HttpPost]        
-        public IActionResult Register(RegistrationVm registrationModel)
+        public IActionResult Register(RegistrationViewModel registrationModel)
         {
             if (ModelState.IsValid)
             {

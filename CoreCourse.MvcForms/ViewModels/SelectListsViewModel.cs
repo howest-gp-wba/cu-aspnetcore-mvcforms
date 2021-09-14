@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CoreCourse.MvcForms.ViewModels
 {
-    public class SelectListsVm
+    public class SelectListsViewModel
     {
         public SimpleSelectVm SimpleSelect { get; set; }
         public SimpleSelectVm GroupedSelect { get; set; }
