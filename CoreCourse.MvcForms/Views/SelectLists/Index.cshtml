@@ -22,7 +22,7 @@
                         asp-items="Model.SimpleSelect.Countries">
                 </select>
             </div>
-            <button type="submit" class="btn btn-default">Pick country</button>
+            <button type="submit" class="btn btn-primary">Pick country</button>
         </form>
     </div>
     <div class="col-md-6">
@@ -33,7 +33,7 @@
                 <select asp-for="GroupedSelect.SelectedCountryId"
                         asp-items="Model.GroupedSelect.Countries"></select>
             </div>
-            <button type="submit" class="btn btn-default">Pick country</button>
+            <button type="submit" class="btn btn-primary">Pick country</button>
         </form>
     </div>
     <div class="col-md-6">
@@ -44,7 +44,7 @@
                 <select asp-for="MultipleSelect.SelectedCountryIds"
                         asp-items="Model.MultipleSelect.Countries"></select>    
             </div>
-            <button type="submit" class="btn btn-default">Pick countries</button>
+            <button type="submit" class="btn btn-primary">Pick countries</button>
         </form>
     </div>
     <div class="col-md-6">
@@ -55,7 +55,7 @@
                 <select asp-for="FavoriteLanguage"
                         asp-items="Html.GetEnumSelectList<ProgrammingLanguages>()"></select>
             </div>
-            <button type="submit" class="btn btn-default">Choose language</button>
+            <button type="submit" class="btn btn-primary">Choose language</button>
         </form>
     </div>
 </div>
