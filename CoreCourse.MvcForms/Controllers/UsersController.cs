@@ -14,8 +14,9 @@ namespace CoreCourse.MvcForms.Controllers
             return View();
         }
 
-        [HttpPost]        
-        public IActionResult Register(RegistrationViewModel registrationModel)
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Register(RegistrationViewModel registrationViewModel)
         {
             if (ModelState.IsValid)
             {
@@ -23,7 +24,7 @@ namespace CoreCourse.MvcForms.Controllers
             }
             else
             {
-                return View(registrationModel);
+                return View(registrationViewModel);
             }
         }
 

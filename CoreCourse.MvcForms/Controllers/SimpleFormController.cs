@@ -11,42 +11,44 @@ namespace CoreCourse.MvcForms.Controllers
     {
         public IActionResult Index()
         {
-            var model = new SimpleFormViewModel();
-            model.RememberMe = true;
-            return View(model);
+            var simpleFormViewModel = new SimpleFormViewModel();
+            simpleFormViewModel.RememberMe = true;
+            return View(simpleFormViewModel);
         }
 
         [HttpGet]
-        public IActionResult SubmitWithGet(SimpleFormViewModel model)
+        public IActionResult SubmitWithGet(SimpleFormViewModel simpleFormViewModel)
         {
-            var submitVm = new SimpleFormSubmitViewModel
+            var SimpleFormSubmitViewModel = new SimpleFormSubmitViewModel
             {
-                Data = model,
+                Data = simpleFormViewModel,
                 Method = "GET"
             };
-            return View("Submit", submitVm);
+            return View("Submit", SimpleFormSubmitViewModel);
         }
 
         [HttpPost]
-        public IActionResult SubmitWithPost(SimpleFormViewModel model)
+        [ValidateAntiForgeryToken]
+        public IActionResult SubmitWithPost(SimpleFormViewModel simpleFormViewModel)
         {
-            var submitVm = new SimpleFormSubmitViewModel
+            var simpleFormSubmitViewModel = new SimpleFormSubmitViewModel
             {
-                Data = model,
+                Data = simpleFormViewModel,
                 Method = "POST"
             };
-            return View("Submit", submitVm);
+            return View("Submit", simpleFormSubmitViewModel);
         }
 
         [HttpPost]
-        public IActionResult SubmitWithRoute(SimpleFormViewModel model)
+        [ValidateAntiForgeryToken]
+        public IActionResult SubmitWithRoute(SimpleFormViewModel simpleFormViewModel)
         {
-            var submitVm = new SimpleFormSubmitViewModel
+            var simpleFormSubmitViewModel = new SimpleFormSubmitViewModel
             {
-                Data = model,
+                Data = simpleFormViewModel,
                 Method = "Route/Post"
             };
-            return View("Submit", submitVm);
+            return View("Submit", simpleFormSubmitViewModel);
         }
     }
 }

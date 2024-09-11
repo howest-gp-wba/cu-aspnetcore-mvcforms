@@ -17,7 +17,8 @@ namespace CoreCourse.MvcForms.Controllers
         }
 
         [HttpPost]
-        public IActionResult Index(ValidatedFormViewModel userVm)
+        [ValidateAntiForgeryToken]
+        public IActionResult Index(ValidatedFormViewModel validatedFormViewModel)
         {
             //check if users' ip is banned
             string remoteIp = HttpContext.Connection.RemoteIpAddress.ToString();
@@ -33,7 +34,7 @@ namespace CoreCourse.MvcForms.Controllers
             }
             else
             {
-                return View(userVm);
+                return View(validatedFormViewModel);
             }
         }
 

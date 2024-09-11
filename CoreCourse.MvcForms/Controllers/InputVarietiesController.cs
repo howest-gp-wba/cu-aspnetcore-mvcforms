@@ -11,21 +11,22 @@ namespace CoreCourse.MvcForms.Controllers
     {
         public IActionResult Index()
         {
-            InputsViewModel model = new InputsViewModel();
-            model.PI = Math.PI;
-            return View(model);
+            InputsViewModel inputsViewModel = new InputsViewModel();
+            inputsViewModel.PI = Math.PI;
+            return View(inputsViewModel);
         }
 
         [HttpPost]
-        public IActionResult Index(InputsViewModel userData)
+        [ValidateAntiForgeryToken]
+        public IActionResult Index(InputsViewModel inputsViewModel)
         {
-            if (userData.ShowSummary)
+            if (inputsViewModel.ShowSummary)
             {
                 //display the summary View with posted data
-                return View("InputSummary", userData);
+                return View("InputSummary", inputsViewModel);
             }
             //re-display form, with pre-filled values
-            return View(userData);
+            return View(inputsViewModel);
         }
     }
 }

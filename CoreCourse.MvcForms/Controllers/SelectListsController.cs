@@ -32,8 +32,8 @@ namespace CoreCourse.MvcForms.Controllers
                 new SelectListGroup{ Name = "North America" }
             };
 
-            var vm = new SelectListsViewModel();
-            vm.SimpleSelect = new SimpleSelectVm
+            var selectListsViewModel = new SelectListsViewModel();
+            selectListsViewModel.SimpleSelect = new SimpleSelectVm
             {
                 SelectedCountryId = 1,
                 Countries = new List<SelectListItem> {
@@ -45,7 +45,7 @@ namespace CoreCourse.MvcForms.Controllers
             };
 
 
-            vm.GroupedSelect = new SimpleSelectVm
+            selectListsViewModel.GroupedSelect = new SimpleSelectVm
             {
                 SelectedCountryId = 1,
                 Countries = new List<SelectListItem> {
@@ -58,7 +58,7 @@ namespace CoreCourse.MvcForms.Controllers
                 }
             };
 
-            vm.MultipleSelect = new MultipleSelectVm
+            selectListsViewModel.MultipleSelect = new MultipleSelectVm
             {
                 SelectedCountryIds = new List<int> { 1, 3 },
                 Countries = new List<SelectListItem>
@@ -78,29 +78,30 @@ namespace CoreCourse.MvcForms.Controllers
                 }
             };
 
-            return View(vm);
+            return View(selectListsViewModel);
         }
 
         [HttpPost]
-        public IActionResult ShowPicks(SelectListsViewModel userVm)
+        [ValidateAntiForgeryToken]
+        public IActionResult ShowPicks(SelectListsViewModel selectListsViewModel)
         {
-            if (userVm.SimpleSelect != null)
+            if (selectListsViewModel.SimpleSelect != null)
             {
-                return Content($"You selected country with ID {userVm.SimpleSelect.SelectedCountryId}");
+                return Content($"You selected country with ID {selectListsViewModel.SimpleSelect.SelectedCountryId}");
             }
-            else if (userVm.GroupedSelect != null)
+            else if (selectListsViewModel.GroupedSelect != null)
             {
-                return Content($"You selected country with ID {userVm.GroupedSelect.SelectedCountryId}");
+                return Content($"You selected country with ID {selectListsViewModel.GroupedSelect.SelectedCountryId}");
             }
-            else if (userVm.MultipleSelect != null)
+            else if (selectListsViewModel.MultipleSelect != null)
             {
-                int numberIds = userVm.MultipleSelect.SelectedCountryIds.Count();
-                string idsString = userVm.MultipleSelect.SelectedCountryIds.Select(i => i.ToString()).Aggregate((s, t) => s + ", " + t);
+                int numberIds = selectListsViewModel.MultipleSelect.SelectedCountryIds.Count();
+                string idsString = selectListsViewModel.MultipleSelect.SelectedCountryIds.Select(i => i.ToString()).Aggregate((s, t) => s + ", " + t);
                 return Content($"You selected {numberIds} countries with IDs {idsString}");
             }
             else 
             {
-                return Content($"You selected {userVm.FavoriteLanguage} as your favorite language.");
+                return Content($"You selected {selectListsViewModel.FavoriteLanguage} as your favorite language.");
             }
         }
     }
